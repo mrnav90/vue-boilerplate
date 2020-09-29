@@ -1,12 +1,11 @@
 {
   "parser": "vue-eslint-parser",
   "extends": [
-    "plugin:vue/base",
-    "plugin:vue/vue3-recommended",
-    "prettier",
-    "prettier/vue",
+    'plugin:vue/vue3-recommended',
+    'prettier',
+    'prettier/vue',
   ],
-  "plugins": ['prettier', 'jsx-a11y'],
+  "plugins": ['prettier'],
   "parserOptions": {
     "parser": "babel-eslint",
     "sourceType": "module",
@@ -50,8 +49,6 @@
     "linebreak-style": [0, {"allow": ["windows"]}],
     "class-methods-use-this": 0,
     "no-underscore-dangle": 0,
-    "jsx-a11y/click-events-have-key-events": 0,
-    "jsx-a11y/no-noninteractive-element-interactions": 0,
     "prettier/prettier": ["error", {
       "printWidth": 80,
       "tabWidth": 2,
@@ -60,12 +57,6 @@
       "singleQuote": true,
       "trailingComma": "all"
     }],
-    "import/no-unresolved": [
-      "error",
-      {
-        "ignore": ["jitsiMeet", "libs", "i18n", "commons", "components", "containers", "api", "styles", "pages", "modals", "utils", "stores", "config", "assets"]
-      }
-    ],
     "max-lines": [2, {  // specify the max number of lines in a file
       max: 300,
       skipBlankLines: true,
@@ -81,7 +72,7 @@
     "max-depth": [2, 4],  // specify the maximum depth that blocks can be nested
     "max-statements": [2, 30],  // specify the maximum number of statement allowed in a function
     "max-statements-per-line": [2, { max: 1 }],  // restrict the number of statements per line,
-    "import/no-extraneous-dependencies": ["error", {"peerDependencies": true}],
+    "import/no-extraneous-dependencies": "off",
     "quote-props": [0, "always"]
   }
 }
