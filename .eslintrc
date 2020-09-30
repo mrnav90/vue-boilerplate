@@ -49,14 +49,6 @@
     "linebreak-style": [0, {"allow": ["windows"]}],
     "class-methods-use-this": 0,
     "no-underscore-dangle": 0,
-    "prettier/prettier": ["error", {
-      "printWidth": 80,
-      "tabWidth": 2,
-      "useTabs": false,
-      "semi": true,
-      "singleQuote": true,
-      "trailingComma": "all"
-    }],
     "max-lines": [2, {  // specify the max number of lines in a file
       max: 300,
       skipBlankLines: true,

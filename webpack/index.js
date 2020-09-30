@@ -2,7 +2,6 @@ import dotenv from 'dotenv';
 import webpackBaseConfig from './base';
 import webpackProductionConfig from './production';
 import webpackDevConfig from './dev';
-import serverConfig from './server';
 
 dotenv.config();
 
@@ -11,7 +10,7 @@ const DEBUG = process.env.DEBUG === 'yes';
 const SSR = process.env.SSR === 'yes';
 
 const webpackConfig = {
-  entry: './src/app.jsx',
+  entry: './src/main.js',
   output: DEVELOPMENT
     ? webpackDevConfig.output
     : webpackProductionConfig.output,
@@ -28,7 +27,7 @@ const webpackConfig = {
     : webpackProductionConfig.optimization,
   mode: process.env.NODE_ENV,
   resolve: {
-    extensions: ['.js', '.jsx', '.react.js'],
+    extensions: ['.js', '.json', '.vue'],
     mainFields: ['browser', 'jsnext:main', 'main'],
     modules: ['node_modules', 'src'],
     alias: webpackBaseConfig.alias,

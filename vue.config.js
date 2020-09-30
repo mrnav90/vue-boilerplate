@@ -1,12 +1,12 @@
+require('@babel/register');
 require('dotenv').config();
 
+const path = require('path');
+const webpackConfig = require('./webpack/index');
 const DEVELOPMENT = process.env.NODE_ENV === 'development';
 
 module.exports = {
-  chainWebpack: (config) => {
-    config.plugins.delete('prefetch');
-  },
-  configureWebpack: (config) => {},
+  configureWebpack: webpackConfig.default,
   devServer: {
     contentBase: path.join(__dirname, '../dist'),
     disableHostCheck: true,

@@ -2,7 +2,7 @@ import webpack from 'webpack';
 import path from 'path';
 import dotenv from 'dotenv';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
-import VueLoaderPlugin from 'vue-loader/lib/plugin';
+import { VueLoaderPlugin } from 'vue-loader';
 
 dotenv.config();
 
@@ -48,6 +48,7 @@ const baseConfig = {
     modals: path.resolve(__dirname, '../src/modals'),
   },
   plugins: [
+    new VueLoaderPlugin(),
     new webpack.DefinePlugin({
       API_URL: JSON.stringify(process.env.API_URL),
       APP_URL: JSON.stringify(process.env.APP_URL),
@@ -62,7 +63,6 @@ const baseConfig = {
       'window.$': 'jquery',
     }),
     new webpack.NamedModulesPlugin(),
-    new VueLoaderPlugin(),
   ],
 };
 

@@ -1,5 +1,5 @@
 import CompressionPlugin from 'compression-webpack-plugin';
-import CleanWebpackPlugin from 'clean-webpack-plugin';
+import { CleanWebpackPlugin } from 'clean-webpack-plugin';
 import ManifestPlugin from 'webpack-manifest-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import TerserPlugin from 'terser-webpack-plugin';
@@ -19,7 +19,7 @@ const webpackConfig = {
     path: path.join(__dirname, '../public'),
     filename: 'app.[chunkhash].js',
     publicPath: '/',
-    // publicPath: `${process.env.APP_URL}/meeting/`,
+    // publicPath: `${process.env.APP_URL}/`,
     chunkFilename: '[name].[chunkhash].chunk.js',
   },
   module: {
@@ -100,10 +100,12 @@ const webpackConfig = {
     },
   },
   plugins: [
-    new CleanWebpackPlugin(['public', 'dist'], {
-      root: process.cwd(),
+    new CleanWebpackPlugin({
+      cleanOnceBeforeBuildPatterns: ['public', 'dist']
     }),
-    new MomentLocalesPlugin(),
+    new MomentLocalesPlugin({
+      localesToKeep: ['ja'],
+    }),
     new OptimizeCSSAssetsPlugin({}),
     new HtmlWebpackPlugin({
       filename: path.join(__dirname, '../public/index.html'),
