@@ -11,7 +11,7 @@ const SSR = process.env.SSR === 'true';
 const SUPPORT_IE = process.env.SUPPORT_IE === 'true';
 
 const webpackConfig = {
-  entry: SUPPORT_IE ? ['@babel/polyfill', './src/app.vue'] : './src/app.vue',
+  entry: SUPPORT_IE ? ['@babel/polyfill', './src/app.js'] : './src/app.js',
   output: DEVELOPMENT
     ? webpackDevConfig.output
     : webpackProductionConfig.output,
