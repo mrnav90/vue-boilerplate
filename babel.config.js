@@ -1,4 +1,6 @@
-const presets = ['@babel/preset-env', '@vue/cli-plugin-babel/preset'];
+const presets = [
+  ['@vue/babel-preset-app', { useBuiltIns: 'entry' }]
+];
 
 const plugins = [
   ['@babel/plugin-proposal-optional-chaining', { loose: false }],

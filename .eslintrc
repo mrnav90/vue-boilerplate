@@ -1,13 +1,13 @@
 {
-  "parser": "vue-eslint-parser",
+  "parser": "babel-eslint",
   "extends": [
+    'plugin:vue/recommended',
     'plugin:vue/vue3-recommended',
     'prettier',
     'prettier/vue',
   ],
-  "plugins": ['prettier'],
+  "plugins": ['prettier', 'vue'],
   "parserOptions": {
-    "parser": "babel-eslint",
     "sourceType": "module",
     "ecmaVersion": 2020,
     "ecmaFeatures": {
@@ -18,7 +18,7 @@
     "import/resolver": {
       "node": {
         "paths": ["src"],
-        "extensions": [".js", ".jsx", ".ts", ".tsx"]
+        "extensions": [".js", ".jsx", ".ts", ".tsx", ".vue"]
       }
     },
   },

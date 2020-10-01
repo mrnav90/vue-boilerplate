@@ -6,11 +6,12 @@ import webpackDevConfig from './dev';
 dotenv.config();
 
 const DEVELOPMENT = process.env.NODE_ENV === 'development';
-const DEBUG = process.env.DEBUG === 'yes';
-const SSR = process.env.SSR === 'yes';
+const DEBUG = process.env.DEBUG === 'true';
+const SSR = process.env.SSR === 'true';
+const SUPPORT_IE = process.env.SUPPORT_IE === 'true';
 
 const webpackConfig = {
-  entry: './src/main.js',
+  entry: SUPPORT_IE ? ['@babel/polyfill', './src/app.vue'] : './src/app.vue',
   output: DEVELOPMENT
     ? webpackDevConfig.output
     : webpackProductionConfig.output,
@@ -59,5 +60,9 @@ const webpackConfig = {
   ],
   devtool: DEBUG ? 'eval-source-map' : 'source-map',
 };
+
+if (DEVELOPMENT && !SSR) {
+  webpackConfig.devServer = webpackBaseConfig.devServer;
+}
 
 export default webpackConfig;
