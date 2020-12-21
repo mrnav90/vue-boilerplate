@@ -11,7 +11,7 @@ const SSR = process.env.SSR === 'true';
 const SUPPORT_IE = process.env.SUPPORT_IE === 'true';
 
 const webpackConfig = {
-  entry: SUPPORT_IE ? ['@babel/polyfill', './src/app.js'] : './src/app.js',
+  entry: SUPPORT_IE ? ['@babel/polyfill', './src/app.ts'] : './src/app.ts',
   output: DEVELOPMENT
     ? webpackDevConfig.output
     : webpackProductionConfig.output,
@@ -28,7 +28,7 @@ const webpackConfig = {
     : webpackProductionConfig.optimization,
   mode: process.env.NODE_ENV,
   resolve: {
-    extensions: ['.js', '.json', '.vue'],
+    extensions: ['.ts', '.js', '.vue', '.tsx', '.json'],
     mainFields: ['browser', 'jsnext:main', 'main'],
     modules: ['node_modules', 'src'],
     alias: webpackBaseConfig.alias,

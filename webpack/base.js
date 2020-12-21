@@ -16,6 +16,20 @@ const baseConfig = {
       loader: 'babel-loader',
     },
     {
+      test: /\.ts(x?)$/,
+      exclude: /node_modules/,
+      use: [
+        {
+          loader: 'ts-loader',
+          options: {
+            transpileOnly: true,
+            logLevel: 'info',
+            appendTsSuffixTo: [/\.vue$/],
+          },
+        },
+      ],
+    },
+    {
       test: /\.vue$/,
       loader: 'vue-loader',
     },
@@ -46,6 +60,7 @@ const baseConfig = {
     assets: path.resolve(__dirname, '../assets'),
     src: path.resolve(__dirname, '../src'),
     modals: path.resolve(__dirname, '../src/modals'),
+    'vue': '@vue/runtime-dom',
   },
   plugins: [
     new VueLoaderPlugin(),

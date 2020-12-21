@@ -1,6 +1,7 @@
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 // import CircularDependencyPlugin from 'circular-dependency-plugin';
+import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
 import ErrorOverlayPlugin from 'error-overlay-webpack-plugin';
 import path from 'path';
 
@@ -47,6 +48,7 @@ const webpackConfig = {
       ignoreOrder: true,
     }),
     new ErrorOverlayPlugin(),
+    new ForkTsCheckerWebpackPlugin(),
     // new CircularDependencyPlugin({
     //   exclude: /a\.js|node_modules/,
     //   failOnError: false,

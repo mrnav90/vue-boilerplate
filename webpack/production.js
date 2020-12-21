@@ -101,7 +101,7 @@ const webpackConfig = {
   },
   plugins: [
     new CleanWebpackPlugin({
-      cleanOnceBeforeBuildPatterns: ['public', 'dist']
+      cleanOnceBeforeBuildPatterns: ['public', 'dist'],
     }),
     new MomentLocalesPlugin({
       localesToKeep: ['ja'],
@@ -173,8 +173,7 @@ const webpackConfig = {
     }),
   ],
   performance: {
-    assetFilter: (assetFilename) =>
-      !/(\.map$)|(^(main\.|favicon\.))/.test(assetFilename),
+    assetFilter: (assetFilename) => !/(\.map$)|(^(main\.|favicon\.))/.test(assetFilename),
   },
 };
 
